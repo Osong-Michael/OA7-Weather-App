@@ -1,52 +1,63 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
+
+// Axios for API call
+import axios from 'axios';
+
+// Components from Material UI library
 import { CssBaseline, Snackbar, Alert } from '@mui/material';
-import './app.css'
+
+// Components from application
 import Weather from './Weather';
-import Loader from './Loader'
-import { getWeatherForecast } from './Redux/actions'
+import Loader from './Loader';
+
+// Redux action to populate Redux state after API call
+import { getWeatherForecast } from './Redux/actions';
+
+// Styles for application
+import './app.css';
 
 const APP_API_KEY = '56f69b3a4a17c94f6dc74ba275ffcf43';
 
 const App = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [city, setCity] = useState('Munich');
-  const [show, setShow] = useState(false);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true)
+  const [state, setState] = useState({ city: 'Munich', show: false, error: false, loading: true });
 
   const dispatch = useDispatch();
-
+  const { loading, show, city, error } = state;
 
   useEffect(() => {
     if(loading && !show) {
-      fetchAllWeatherDetails(city)
-    }
-  })
+      fetchAllWeatherDetails(city);
+    };
+  }, []);
 
-  const getCityWeatherDetails = town => fetchAllWeatherDetails(town)
+  const getCityWeatherDetails = town => fetchAllWeatherDetails(town);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
-    }
-    setError(false);
+    };
+    setState({ error: false });
   };
 
-  const fetchAllWeatherDetails = (currentCity) => {
-    axios.get(`https://api.openweathermap.org/data/2.5/forecast?appid=${APP_API_KEY}&q=${currentCity}&units=metric`)
+  const fetchAllWeatherDetails = async currentCity => {
+    setState({ loading: true });
+    await axios.get(`https://api.openweathermap.org/data/2.5/forecast?appid=${APP_API_KEY}&q=${currentCity}&units=metric`)
       .then(res => {
         dispatch(getWeatherForecast(res.data));
-        setLoading(false)
-        setShow(true)
+        setState({
+          loading: false,
+          show: true,
+        });
         return res.data;
       })
-      .catch(() => {
-        setLoading(false)
-        setError(true)
+      .catch(err => {
+        setState({
+          loading: false,
+          show: true,
+        });
       });
-  }
+  };
 
   return (
     <div className="ctn-gradient" data-test-id="app-component">
@@ -58,6 +69,6 @@ const App = () => {
       {!loading && show && ( <Weather getCityWeatherDetails={getCityWeatherDetails} /> )}
     </div>
   );
-}
+};
 
 export default App;

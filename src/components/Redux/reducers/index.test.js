@@ -1,19 +1,19 @@
-import weatherReducer from './'
-import { GETTING_WEATHER_FORECAST, CHANGE_SI_UNIT } from '../actions'
+import weatherReducer from './';
+import { GETTING_WEATHER_FORECAST, CHANGE_SI_UNIT } from '../actions';
 
 
 describe('Redux Reducers', () => {
-  let state
+  let state;
   beforeEach(() => {
     state = {
       weather: {},
       siUnit: 'celsius',
     }
-  })
+  });
 
   test('returns initial state when no action is passed', () => {
     weatherReducer(state, {});
-    expect(state).toEqual(state)
+    expect(state).toEqual(state);
   });
   
   test('changes the SI Unit of the state when the "CHANGE_SI_UNIT" action is passed', () => {
@@ -22,7 +22,7 @@ describe('Redux Reducers', () => {
       siUnit: 'fahrenheit',
     };
     const newState = weatherReducer(state, { type: CHANGE_SI_UNIT, unit: 'fahrenheit' });
-    expect(newState).toEqual(testState)
+    expect(newState).toEqual(testState);
   });
   
   test('populates the weather object of the state when the "GETTING_WEATHER_FORECAST" action is passed', () => {
@@ -42,6 +42,6 @@ describe('Redux Reducers', () => {
       siUnit: 'celsius',
     };
     const newState = weatherReducer(state, { type: GETTING_WEATHER_FORECAST, data });
-    expect(newState).toEqual(testState)
+    expect(newState).toEqual(testState);
   });
-})
+});

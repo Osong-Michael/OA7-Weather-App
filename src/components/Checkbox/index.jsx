@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+// Components from Material UI library
 import { Container, Button, Radio, RadioGroup, FormControlLabel } from '@mui/material';
+
+// Helper method
 import { capitalizeFirstLetter } from '../helpers';
+
+// Redux action to change Redux state for SI Unit
 import { changeUnit } from '../Redux/actions';
 
 
@@ -11,12 +17,12 @@ const Checkbox = () => {
   const temps = ['celsius', 'fahrenheit'];
   const dispatch = useDispatch();
 
-  const checkboxes = temps.map((temp, index) => <div key={index + 1}><FormControlLabel value={temp} control={<Radio />} label={capitalizeFirstLetter(temp)} /></div>)
+  const checkboxes = temps.map((temp, index) => <div key={index + 1}><FormControlLabel value={temp} control={<Radio />} label={capitalizeFirstLetter(temp)} /></div>);
 
   const handleClick = e => {
-    setValue(e.target.value)
-    dispatch(changeUnit(e.target.value))
-  }
+    setValue(e.target.value);
+    dispatch(changeUnit(e.target.value));
+  };
 
 
   return (
@@ -34,7 +40,7 @@ const Checkbox = () => {
       </RadioGroup>
       <Button variant="contained" sx={{ ml: 5 }} className="margin-to-sm" onClick={() => window.location.reload(false)}>Refresh</Button>
     </Container>
-  )
-}
+  );
+};
 
 export default Checkbox;

@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Components from Material UI library
 import { CircularProgress, Box, Typography } from '@mui/material';
 
 export default function Loader() {
@@ -8,4 +10,4 @@ export default function Loader() {
       <Typography component='p' sx={{ marginTop: '40px' }}>Loading Your Weather Data...</Typography>
     </Box>
   );
-}
+};

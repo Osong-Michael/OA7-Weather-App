@@ -1,4 +1,4 @@
-import { getWeatherForecast, changeUnit, GETTING_WEATHER_FORECAST, CHANGE_SI_UNIT } from './index'
+import { getWeatherForecast, changeUnit, GETTING_WEATHER_FORECAST, CHANGE_SI_UNIT } from './index';
 
 describe('Redux Actions', () => {
   test('creates an action to store weather data in Redux store', () => {
@@ -17,7 +17,7 @@ describe('Redux Actions', () => {
       data
     };
 
-    expect(getWeatherForecast(data)).toEqual(expectedAction)
+    expect(getWeatherForecast(data)).toEqual(expectedAction);
   });
 
   test('creates an action to change the "SI Unit" of temperature in Redux store', () => {
@@ -27,6 +27,6 @@ describe('Redux Actions', () => {
       unit
     };
 
-    expect(changeUnit(unit)).toEqual(expectedAction)
-  })
+    expect(changeUnit(unit)).toEqual(expectedAction);
+  });
 });

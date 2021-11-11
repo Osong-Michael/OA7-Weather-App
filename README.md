@@ -39,6 +39,12 @@ A simple weather application.
 
 A simple weather application for your daily weather forecast.
 
+- When the app loads a user can seacrh for the weather forecast for any city in the world and get back a 5 day weather prediction for that city.
+
+- The weather details are displayed on cards that are scrollable or swipeable depending on you device.
+
+- Clicking any card displays the weather temperature variations for that day in intervals of 3 hours.
+
 ![Product Name Screen Shot][product-screenshot]
 <br>
 

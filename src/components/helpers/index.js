@@ -5,14 +5,12 @@ const dayOfMonth = dateText => new Date(dateText).toLocaleDateString('en-us', {
   day: 'numeric',
   month: 'long',
   year: 'numeric',
-})
+});
 
-const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 
-const capitalizeFirstLetterOfWords = string => string.replace(/\b\w/g, l => l.toUpperCase())
+const capitalizeFirstLetterOfWords = string => string.replace(/\b\w/g, l => l.toUpperCase());
 
-const celsiusToFahr = temp => {
-  return ((temp * (9/5)) + 32).toFixed(2)
-}
+const celsiusToFahr = temp => ((temp * (9/5)) + 32).toFixed(2);
 
-export { dayOfWeek, timeOfDay, dayOfMonth, capitalizeFirstLetter, capitalizeFirstLetterOfWords, celsiusToFahr }
+export { dayOfWeek, timeOfDay, dayOfMonth, capitalizeFirstLetter, capitalizeFirstLetterOfWords, celsiusToFahr };

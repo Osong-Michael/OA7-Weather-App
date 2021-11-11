@@ -1,25 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { withStyles } from '@mui/styles'
+import PropTypes from 'prop-types'; 
+
+// Material UI Components
+import { withStyles } from '@mui/styles';
 import { CardActionArea, Box, Card, CardContent, Divider, Typography } from '@mui/material';
+
+// Helper Methods
 import { dayOfWeek, dayOfMonth, celsiusToFahr, capitalizeFirstLetterOfWords } from "../helpers";
 
 const CardBody = props => {
-  const { classes, weather, showCard } = props;
-  const [state, setState] = useState('C');
-  const [tempMax, setTempMax] = useState(0);
-  const [tempMin, setTempMin] = useState(0);
+  const { classes, weather, showCard, currentTempUnit } = props;
+  const [state, setState] = useState({ tempMax: 0, tempMin: 0, tempUnit: 'C'});
 
   useEffect(() => {
-    if(props.currentTempUnit !== 'celsius') {
-      setTempMax(celsiusToFahr(weather?.main?.temp_max))
-      setTempMin(celsiusToFahr(weather?.main?.temp_min))
-      setState('F')
+    if(currentTempUnit !== 'celsius') {
+      setState({
+        tempMax: celsiusToFahr(weather?.main?.temp_max),
+        tempMin: celsiusToFahr(weather?.main?.temp_min),
+        tempUnit: 'F',
+      });
     } else {
-      setTempMax(weather?.main?.temp_max)
-      setTempMin(weather?.main?.temp_min)
-      setState('C')
+      setState({
+        tempMax: weather?.main?.temp_max,
+        tempMin: weather?.main?.temp_min,
+        tempUnit: 'C',
+      });
     }
-  }, [props.currentTempUnit, weather])
+  }, [currentTempUnit, weather]);
+
+  const minMaxTemps = ['Max', 'Min'].map(temp => (
+    <Box p={2} flex={'auto'} key={temp}>
+      <p className={classes.statLabel} data-test-id={`weather-${temp.toLowerCase()}-temp`}>{temp} Temperature</p>
+      <p className={classes.statValue}>{temp === 'Max' ? state.tempMax : state.tempMin}&deg;{state.tempUnit}</p>
+    </Box>
+  ));
 
   return (
     <Card className={classes.card} sx={{ bgcolor: 'transparent', boxShadow: 3, borderRadius: 5 }} onClick={() => showCard(dayOfWeek(weather.dt))} >
@@ -30,14 +44,7 @@ const CardBody = props => {
         </CardContent>
         <Divider light />
           <Box display={'flex'}>
-            <Box p={2} flex={'auto'}>
-              <p className={classes.statLabel} data-test-id="weather-max-temp">Max Temperature</p>
-              <p className={classes.statValue}>{tempMax}&deg;{state}</p>
-            </Box>
-            <Box p={2} flex={'auto'}>
-              <p className={classes.statLabel} data-test-id="weather-min-temp">Min Temperature</p>
-              <p className={classes.statValue}>{tempMin}&deg;{state}</p>
-            </Box>
+            {minMaxTemps}
           </Box>
           <Divider light />
           <Typography p={2} component="p" className={classes.date}>
@@ -46,7 +53,7 @@ const CardBody = props => {
       </CardActionArea>
     </Card>
   );
-}
+};
 
 const styles = {
   card: {
@@ -91,5 +98,27 @@ const styles = {
   date: {
     textAlign: 'center',
   }
+};
+
+CardBody.propTypes = {
+  classes: PropTypes.object,
+  currentTempUnit: PropTypes.string,
+  showCard: PropTypes.func,
+  weather: PropTypes.shape({
+    dt: PropTypes.number.isRequired,
+    dt_txt: PropTypes.string.isRequired,
+    main: PropTypes.shape({
+      temp_max: PropTypes.number.isRequired,
+      temp_min: PropTypes.number.isRequired,
+    }),
+    weather: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.shape({
+        icon: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        main: PropTypes.string.isRequired,
+      }),
+    ]),
+  }).isRequired,
 };
 export default withStyles(styles)(CardBody);

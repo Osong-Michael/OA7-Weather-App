@@ -1,4 +1,4 @@
-import { GETTING_WEATHER_FORECAST, CHANGE_SI_UNIT } from '../actions'
+import { GETTING_WEATHER_FORECAST, CHANGE_SI_UNIT } from '../actions';
 
 const initState = {
   weather: {},
@@ -19,7 +19,7 @@ const weatherReducer = (state = initState, action) => {
       };
     default:
       return state;
-  }
+  };
 };
 
 export const getWeatherDetails = state => state.weather;
