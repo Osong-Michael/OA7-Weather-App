@@ -36,6 +36,8 @@ class Weather extends React.Component {
       this.setState({ fiveDayWeatherForecast: fiveDayWeather })
     }
 
+    this.showCard(dayOfWeek(weatherDetails.list[0].dt))
+
   }
 
   componentDidUpdate(prevProps) {

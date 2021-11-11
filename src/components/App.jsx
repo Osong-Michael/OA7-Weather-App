@@ -50,7 +50,7 @@ const App = () => {
 
   return (
     <div className="ctn-gradient" data-test-id="app-component">
-      <Snackbar open={error} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{vertical:'top', horizontal: 'right'}}>
+      <Snackbar open={error} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{vertical:'top', horizontal: 'center'}}>
         <Alert severity="error">Sorry City not found, input correct city name</Alert>
       </Snackbar>
       <CssBaseline />

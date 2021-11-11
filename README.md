@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# React and Redux App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple weather application.
 
-## Available Scripts
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c013a4a0-1b1f-45cc-bbf3-29fd952c9796/deploy-status)](https://app.netlify.com/sites/oa7-weather-app/deploys)
 
-In the project directory, you can run:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <h1 align="center">Weather App</h1>
 
-### `yarn start`
+  <p align="center">
+    <a href="https://oa7-weather-app.netlify.app/"><strong>View Demo</strong></a>
+    ·
+    <a href="https://github.com/Osong-Michael/React-Weather-App/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Osong-Michael/React-Weather-App/issues">Request Feature</a>
+  </p>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- TABLE OF CONTENTS -->
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Table of Contents
 
-### `yarn test`
+- [About the Project](#about-the-project)
+- [Use Locally](#local-usage)
+- [Contact](#contact)
+- [License](#license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<br>
+<!-- ABOUT THE PROJECT -->
 
-### `yarn build`
+## About The Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A simple weather application for your daily weather forecast.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Product Name Screen Shot][product-screenshot]
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### The API this app consumes is located [here](https://openweathermap.org/api)
 
-### `yarn eject`
+<!-- ABOUT THE PROJECT -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Local Usage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To use this app locally, this is what you need to:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Download](https://github.com/Osong-Michael/OA7-Weather-App/archive/master.zip) or clone this repo:
+  - Clone with SSH:
+  ```
+    git@github.com:Osong-Michael/OA7-Weather-App.git
+  ```
+  - Clone with HTTPS
+  ```
+    https://github.com/Osong-Michael/OA7-Weather-App.git
+  ```
+- `cd` into the downloaded folder and run `yarn install`
+- Run `yarn test` to see all tests for this app.
+- then, run `yarn start` to start the development server.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<!-- CONTACT -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contact
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+👤 **Osong Agberndifor**
 
-### Code Splitting
+- Github: [Osong Agberndifor](https://github.com/Osong-Michael)
+- Twitter: [@Osong17](https://twitter.com/Osong17)
+- Linkedin: [Osong](https://linkedin.com/osong-agberndifor)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[contributors-shield]: https://img.shields.io/github/contributors/Osong-Michael/OA7-Weather-App.svg?style=flat-square
+[contributors-url]: https://github.com/Osong-Michael/OA7-Weather-App/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Osong-Michael/OA7-Weather-App.svg?style=flat-square
+[forks-url]: https://github.com/Osong-Michael/OA7-Weather-App/network/members
+[stars-shield]: https://img.shields.io/github/stars/Osong-Michael/OA7-Weather-App.svg?style=flat-square
+[stars-url]: https://github.com/Osong-Michael/OA7-Weather-App/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Osong-Michael/OA7-Weather-App.svg?style=flat-square
+[issues-url]: https://github.com/Osong-Michael/OA7-Weather-App/issues
+[product-screenshot]: public/images/bg-image.png
 
-### Making a Progressive Web App
+<!-- [product-screenshot2]: dist/images/page2.png -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📝 License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [Creative Common](https://creativecommons.org/licenses/by-nc/4.0/) licensed.
