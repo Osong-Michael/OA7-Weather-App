@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+
+body {
+  font-family: 'Zen Kurenaido', sans-serif;
+  background: url('../assets/img/clear-sm.jpg') no-repeat center center fixed;
+  background-size: cover;
+  opacity: .65;
+}
+
+:is(.MuiTypography-root, .MuiButton-root, .MuiInput-root, .MuiCardContent-root, .MuiBox-root, .font-fam) {
+  font-family: 'Zen Kurenaido', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+
+.ctn-gradient {
+  background: transparent;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.padding-class {
+  padding: 10px;
+}
+
+.weather-img,
+.header {
+  text-align: center;
+}
+
+.weather-img img {
+  height: 50px;
+}
+
+.chart {
+  margin: 100px auto;
+  max-width: 600px;
+}
+
+.form {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .margin-to-sm {
+    margin-top: 30px !important;
+    margin-left: 0 !important;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .MuiContainer-maxWidthLg {
+    margin: 10px auto !important;
+  }
+
+  .ctn-gradient {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
